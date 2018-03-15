@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i;
+    char sayi[10];
+    int x;
+    int toplam=0;
+    printf("4 adet tamsayi icerikli dizgi giriniz:");
+    for(i=0;i<4;i++){
+        fgets(sayi,10,stdin);
+        x=atoi(sayi);
+        toplam=toplam+x;
+    }
+    printf("Girdiginiz sayilarin toplami:%d dir",toplam);
+    return 0;
+}
