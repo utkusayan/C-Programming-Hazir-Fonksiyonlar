@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char s[50];
+    int x;
+    long y;
+    double z;
+    printf("sayi girin:");
+    gets(s);
+    x=atoi(s);
+    y=atol(s);
+    z=atof(s);
+
+    printf("int   : %d\n",x);
+    printf("long  : %ld\n",y);
+    printf("double: %lf\n",z);
+    return 0;
+}
