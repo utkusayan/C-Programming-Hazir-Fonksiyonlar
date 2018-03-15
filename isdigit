@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int c1;
+    printf("Bir karakter giriniz:");
+    scanf("%c",&c1);
+    if(isdigit(c1)){
+        printf("%c karakteri bir rakamdir.",c1);
+    }
+    else
+        printf("%c karakteri bir rakam degildir.",c1);
+    return 0;
+}
