@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+int main()
+{
+    char cumle[80];
+    printf("Bir cumle giriniz:");
+    fgets(cumle,80,stdin);
+    char kelime[20];
+    printf("Aranacak kelimeyi giriniz:");
+    scanf("%s",kelime);
+    char *araptr;
+    araptr=strstr(cumle,kelime);
+    int adet=0;
+    while(araptr!=NULL){
+        adet++;
+        araptr++;
+        araptr=strstr(araptr,kelime);
+    }
+    printf("\%s\ kelimesi cumle icinde %d tane vardir.",kelime,adet);
+
+    return 0;
+}
