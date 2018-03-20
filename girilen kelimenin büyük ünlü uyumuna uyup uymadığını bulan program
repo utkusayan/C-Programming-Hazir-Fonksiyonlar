@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*buyuk sesli uyumu,kelime içerisindeki sesli harflerin tamaminin kalin sesli(a,ı,o,u) ya da tamaminin ince sesli(e,i,ö,ü) olmasidir.*/
+int main()
+{
+    printf("Dizgiyi girin:");
+    char kelime[100];
+    scanf("%s",kelime);
+    int i,j;
+    
+    for(i=0;kelime[i]!='\0';i++){
+        if(kelime[i]=='a'||kelime[i]=='ý'||kelime[i]=='o'||kelime[i]=='u'){
+            for(j=0;kelime[j]!='\0';j++){
+                if(kelime[j]=='i'||kelime[j]=='e'||kelime[j]=='ö'||kelime[j]=='ü'){
+                    printf("Buyuk unlu uyumuna uymaz");
+                    return 0;
+                }
+
+            }
+        }
+    }
+    
+    for(i=0;kelime[i]!='\0';i++){
+        if(kelime[i]=='i'||kelime[i]=='e'||kelime[i]=='ö'||kelime[i]=='ü'){
+            for(j=i;kelime[j]!='\0';j++){
+                if(kelime[j]=='a'||kelime[j]=='o'||kelime[j]=='u'||kelime[j]=='ý'){
+                    printf("buyuk unlu uyumuna uymaz.");
+                    return 0;
+                }
+            }
+        }
+    }
+    printf("Buyuk unlu uyumuna uyar");
+    return 0;
+}
+
