@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+int main()
+{
+    int i;
+    char isimler[10][10];
+    int karakter[10];
+    for(i=0;i<10;i++){
+        scanf("%s",isimler[i]);
+        karakter[i]=strlen(isimler[i]);
+    }
+    printf("ilk harfi ve son harfi ayni olanlar:\n");
+    for(i=0;i<10;i++){
+        if(isimler[i][0]==isimler[i][karakter[i]-1]){
+            printf("%s\n",isimler[i]);
+        }
+    }
+
+    return 0;
+}
