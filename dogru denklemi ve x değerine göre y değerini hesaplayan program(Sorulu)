@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+/*klavyeden girilen bir dogru denklemi ve x degerini gore y degerini hesaplayýp ekrana yazan C porgrami yaziniz.
+  Denklem bir dizgi olarak okutulmalidir.
+  Denklem her zaman y=mx+n biciminde verilecek ve tum katsayi sabitleri tamsayi olacaktir.
+   Ornek Calisma:
+    Dogru denklemi giriniz:y=13x+5
+    X degerini giriniz = 2
+    -------------------------
+    y = 31
+*/
+
+int main()
+{
+    char denklem[20];
+    printf("dogru denklemini giriniz:");
+    scanf("%s",denklem);
+
+    double m,n;
+    char *kptr;
+    char *rptr;
+    int i;
+    int temsili_X;//x'e deger vermis gibi gostermek icin
+    double sonuc;
+    m=strtod(denklem+2,&kptr);//y=mx+n' de "y=" sonrasindaki ilk rakami alabilmek icin
+    printf("m=%.lf\n",m);
+    n=strtod(kptr+2,&rptr);//y=mx+n' de "x+" sonrasindaki ilk rakami alabilmek icin
+    printf("n=%.lf\n",n);
+    printf("X degerini giriniz =");
+    scanf("%d",&temsili_X);
+    sonuc=m*temsili_X+n;
+    printf("y=%.lf",sonuc);
+
+    return 0;
+}
