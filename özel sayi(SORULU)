@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Ozel bir sayi sisteminde 1 yerine I,10 yerine U,100 yerine de Z simgeleri kullanýlmaktadýr.
+  Bu sistemde bir tamsayi kullandiginiz onluk sistemde kac tane birlik,onluk,yüzlük varsa I,U veya Z simgelerinden o kadari % yanyana dizilerek yazilir.
+  Bu özel sayi sisteminde girilen en fazla 50 basamakli sayiyi onluk sayi sistemine çevirip ekrana yazan programi yaziniz.*/
+
+
+
+int main()
+{
+    printf("Ozel sayi sistemindeki sayiyi giriniz:");
+    char ozelsayi[20];
+    scanf("%s",&ozelsayi);
+
+    int toplam=0;
+    int i;
+    int karakter_sayisi=0;
+    for(i=0;ozelsayi[i]!='\0';i++){
+        karakter_sayisi++;
+    }
+    printf("-------------------------------------------\n");
+    for(i=0;i<karakter_sayisi;i++){
+        if(ozelsayi[i]=='Z'){
+            toplam=toplam+100;
+        }
+        else if(ozelsayi[i]=='U'){
+            toplam=toplam+10;
+        }
+        else if(ozelsayi[i]=='I'){
+            toplam++;
+        }
+    }
+    printf("Girilen sayinin onluk sistemdeki karsiligi :%d",toplam);
+
+    return 0;
+}
