@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+int main()
+{
+    printf("isimleri giriniz:\n");
+    char isimler[10][20];
+    int i;
+    for(i=0;i<10;i++){
+        gets(isimler[i]);
+    }
+    printf("me ile baslayan isimler:\n");
+    for(i=0;i<10;i++){
+        if(isimler[i][0]=='m'&&isimler[i][1]=='e'){
+        printf("%s\n",isimler[i]);
+        }
+    }
+
+        return 0;
+}
