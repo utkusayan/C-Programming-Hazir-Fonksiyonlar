@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+/*Kendisine gonderilen metin icindeki bosluklari '_'(altcizgi-underscore)karakteri
+  ile degistiren spacemask adindaki fonksiyonu yaziniz.Yazilan program asagidaki  ornek
+  programa uygun olmalidir.Global degisken kullanmayiniz ve main fonksiyonuna bos
+  birakilann yerler haric ekleme yapmayiniz.
+  Ornek Program
+  ...............*prototip*
+  int main()
+  {
+  char sample[]="This is a test string";
+  spacemask(sample);
+  printf("%s",sample);
+*/
+char spacemask(char str[]){
+    int i;
+    for(i=0;str[i]!='\0';i++){//stringin sonuna kadar bosluklarin hepsini '_' e ceviriyorum.
+        if(str[i]==' '){
+            str[i]='_';
+        }
+    }
+
+    return str;//str stringine geri donduruyorum.
+
+
+}
+int main()
+{
+    char sample[]="This is a test string";
+    spacemask(sample);
+    printf("%s",sample);
+    return 0;
+}
