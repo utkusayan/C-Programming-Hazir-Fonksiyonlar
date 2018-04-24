@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+/*Klavyeden girilen en fazla 100 karakterlik anlamli bir kelimenin palindrome olup olmadigini bulan programi yaziniz.
+  (Palindrome tersten ve duz okunusu ayni olan kelimedir.)*/
+
+int main()
+{
+     char dizgi[100];
+     printf("Dizgiyi giriniz:");
+     gets(dizgi);//dizgi girilir.
+     
+     int i;
+     double sayac;
+     int karakter_sayisi;
+     char bastan_dizgi[50];         //kelimenin bastan yarisini kaydetmek icin sonra kullanmalik dizgi aciyoruz.
+     char sondan_dizgi[50];         //kelimenin sondan yarisini kaydetmek icin sonra kullanmalik dizgi aciyoruz.
+     
+     sayac=strlen(dizgi)/2;         //yarisina kadar dolasmak icin karakter sayisinin yarisi alinir.
+     karakter_sayisi=strlen(dizgi); //tersten yarisina kadar dolasmak icin butun karakter sayisina ihtiyac var.
+     floor(sayac);
+     printf("sayac=%lf\n",sayac);
+     printf("karakter sayisi=%d\n",karakter_sayisi);
+     
+     for(i=0;i<sayac;i++){
+        bastan_dizgi[i]=dizgi[i];  //kelimenin bastan yarisi kaydeliyor.
+     }
+     bastan_dizgi[i]='\0';         //boyutu 50 oldugu icin sonuna sonlandirma harfi konulur.
+     printf("\nbastan_dizgi=%s",bastan_dizgi);
+     
+     for(i=karakter_sayisi;i>karakter_sayisi-sayac-1;i--){
+
+        sondan_dizgi[karakter_sayisi-i]=dizgi[i-1];
+     }
+     sondan_dizgi[karakter_sayisi-i-1]='\0';
+     printf("\nsondan dizgi=%s",sondan_dizgi);
+     
+     int karsilastirma;
+     karsilastirma=strcmp(bastan_dizgi,sondan_dizgi);
+     if(karsilastirma==0){
+        printf("\nBu kelime palindrome kelimedir.");
+     }
+     else{
+        printf("\nBu kelime palindrome kelime degildir");
+     }
+    
+    return 0;
+}
