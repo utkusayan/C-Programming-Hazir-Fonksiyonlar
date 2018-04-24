@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+/*Klavyeden (.) nokta yazilincaya kadar,girilen cumleyi sifreleyerek ekrana yazan programi yaziniz.
+  sifreleme esasi olarakda en eski sifreleme methodlarindan biris olan "her harfin belli miktar otelenmesi"esas alinmistir.
+  Buna gore;oteleme miktari(klavyeden giriliyor)3 secildiginde her harften 3 ilerideki harf ile degistirilecektir.
+  Yani tum A lar D ,tum K lar N harfi ile ifade edilir.
+  Otelendiginde son harfi gecen harfler basa dondurulerek oradan devam ettirilir.
+  (Girilecek metin icinde Turkce karakterlein ve rakamlarin olmadigi varsayilir.*/
+
+int main()
+{
+    char metin[100];
+    printf("Metni giriniz:");
+    fgets(metin,100,stdin);//metni giriyorum.
+    int i,oteleme;
+    printf("Oteleme miktarini girin:");
+    scanf("%d",&oteleme);
+    printf("sifreli cumle:\n");
+    for(i=0;metin[i]!='.';i++){
+        if(metin[i]=='y'||metin[i]=='Y'){
+            metin[i]='b';/*y karakteri '|' olarak algilaniyor.
+                         Sirasiyla x,y,z harfleri a,b,c olarak algilanmali.
+                         Burada x,y,z harflerini a,b,c donduruyorum.*/
+        }
+        else if(metin[i]=='z'||metin[i]=='Z'){
+            metin[i]='c';
+        }
+        else if(metin[i]=='x'||metin[i]=='X'){
+            metin[i]='a';
+        }
+        else if(metin[i]==' '){
+            metin[i]=' ';/*bosluk karakteri de '#' olarak cevrilir.bunu engellemek icin
+                           bunu engellemek icin bosluk yerine bosluk donduruyorum.
+                         */
+        }
+        else
+        metin[i]=metin[i]+oteleme;
+    }
+    printf("%s",metin);
+    return 0;
+}
