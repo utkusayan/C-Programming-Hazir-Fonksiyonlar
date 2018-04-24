@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+/*Kendisine gonderilen en cok 255 karakter uzunlugundaki metin icerisinde,,yine kendisine gonderilen sozcugun,
+kac kez yinelendigini bulan "sozluksay" adindaki fonksiyonu,metin ve sozcugun klavyeden girildigi ana fonksiyonu
+ile birlikte yaziniz.
+(Metin icerisinde turkce karakter yoktur.Metin ve sozcuk kucuk-buyuk harfle yazilmistir.Arama buyuk harf kucuk
+ harf ayrimi yapmadan takisiz sozcukleri saymalidir.Saydirilacak sozcuk,baska bir sozcuk icinde geciyorsa
+ sayima dahil edilmeyecektir.Girisler ve ekrana yazdirma islemi ana fonksiyon icerisinde gerceklestirilir.
+ Global degisken kullanmayiniz.
+*/
+int main()
+{
+    char metin[255];
+    printf("Metni giriniz:\n");
+    fgets(metin,255,stdin);
+    char kelime[25];
+    printf("Sozcuk giriniz:");
+    scanf("%s",kelime);
+    int i;
+    for(i=0;metin[i]!='\0';i++){
+        if(isalpha(metin[i])){
+            if(isupper(metin[i])){
+                metin[i]=tolower(metin[i]);//butun girilen metni kucuk harfe ceviriyorum.
+            }
+        }
+    }
+    //printf("%s",metin);//butun harflerin kuculdugunu kontrol ediyorum.
+    int adet=0;
+    char *araptr;
+    araptr=strstr(metin,kelime);
+    while(araptr!=NULL){//kelime saydiriyorum.
+        adet++;
+        araptr++;
+        araptr=strstr(araptr,kelime);
+    }
+    printf("Bu sozcuk metinde %d kez gecmektedir.",adet);
+    return 0;
+}
